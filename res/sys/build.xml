@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- hxotr -->
+
+<xml>
+
+	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+
+	<set name="DBG" value="d" if="debug" />
+	<set name="ROOT" value="../" unless="ROOT"/>
+
+	<files id="files">
+		<compilerflag value="-I/usr/local/include"/>
+		<compilerflag value="-I/usr/local/include/libotr"/>
+		<flag value="-DOTR40"/>
+		<file name="hxotr.cpp"/>
+	</files>
+
+	<target id="otr.ndll" tool="linker" toolid="dll" output="otr">
+		<files id="files"/>
+		<ext value=".ndll"/>
+		<outdir name="../../ndll/${BINDIR}"/>
+		<flag value="${LIB_DIR}"/>
+		<lib name="-lotr"/>
+		<!--
+		<lib name="./libotr.a" if="linux"/>
+		<flag value="-I../data/libotr/src"/>
+		<flag value="-L../data/libotr/src/.libs"/>
+		<flag value="-DOTR40"/>
+		-->
+	</target>
+
+	<target id="default">
+		<target id="otr.ndll"/>
+	</target>
+
+</xml>
