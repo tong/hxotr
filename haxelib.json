@@ -1,0 +1,13 @@
+{
+	"name": "otr",
+	"license": "Public",
+	"tags": ["crypto","encryption","e2e","protocol","jabber","xmpp"],
+	"description": "Cryptographic protocol providing strong encryption for instant messaging conversations",
+	"version": "0.1.0",
+	"releasenote": "See CHANGES",
+	"url": "https://github.com/tong/hxotr",
+	"contributors": ["tong"],
+	"classPath" : "src/",
+	"dependencies": {
+	}
+}
