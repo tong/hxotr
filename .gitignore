@@ -1,0 +1,9 @@
+*.cache
+*.o
+*.jar
+*.map
+*.zip
+*.sublime-project
+*.sublime-workspace
+_*
+TODO
