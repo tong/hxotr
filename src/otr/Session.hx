@@ -2,6 +2,13 @@ package otr;
 
 private typedef OTR = Dynamic; //TODO
 
+typedef OTROptions = {
+	@:optional var priv : Dynamic;
+	@:optional var debug : Bool;
+	@:optional var fragment_size : Int;
+	@:optional var send_interval : Int;
+}
+
 @:require(js)
 class Session {
 	
@@ -28,13 +35,8 @@ class Session {
 
 	public var crypto(default,null) : OTR;
 
-	public function new( ?key : Dynamic, fragment_size : Int = 140, send_interval : Int = 200 ) {
-		var opts = {
-			fragment_size: fragment_size,
-			send_interval: send_interval,
-			priv : key
-		};
-		crypto = untyped __js__('new OTR(this.opts)');
+	public function new( ?options : OTROptions ) {
+		crypto = untyped __js__('new OTR(this.options)');
 		crypto.on( 'ui', ui );
 		crypto.on( 'io', io );
 		crypto.on( 'error', handleError );
