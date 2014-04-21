@@ -1,14 +1,5 @@
-
 -main App
 -cp ../../src
 -debug
---each
-
---next
 -js app.js
-#-D embed_js
-
-#--next
-#-lib nodejs
-#-js app.node
 #-D embed_js
